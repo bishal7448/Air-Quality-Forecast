@@ -1,0 +1,147 @@
+# Air Quality Forecasting Configuration
+project:
+  name: "Air Quality Forecasting for Delhi"
+  version: "1.0.0"
+  description: "Short-term forecast of gaseous air pollutants (O3 and NO2) using satellite and reanalysis data"
+
+data:
+  raw_data_path: "data/"
+  processed_data_path: "data/processed/"
+  train_files:
+    - "site_1_train_data.csv"
+    - "site_2_train_data.csv"
+    - "site_3_train_data.csv"
+    - "site_4_train_data.csv"
+    - "site_5_train_data.csv"
+    - "site_6_train_data.csv"
+    - "site_7_train_data.csv"
+  
+  test_files:
+    - "site_1_unseen_input_data.csv"
+    - "site_2_unseen_input_data.csv"
+    - "site_3_unseen_input_data.csv"
+    - "site_4_unseen_input_data.csv"
+    - "site_5_unseen_input_data.csv"
+    - "site_6_unseen_input_data.csv"
+    - "site_7_unseen_input_data.csv"
+  
+  site_coordinates: "lat_lon_sites.txt"
+
+features:
+  meteorological:
+    - "T_forecast"      # Temperature forecast
+    - "q_forecast"      # Humidity forecast
+    - "u_forecast"      # U-wind component
+    - "v_forecast"      # V-wind component
+    - "w_forecast"      # W-wind component
+  
+  satellite:
+    - "NO2_satellite"   # Satellite NO2
+    - "HCHO_satellite"  # Satellite HCHO
+    - "ratio_satellite" # Satellite ratio
+  
+  forecast_inputs:
+    - "O3_forecast"     # O3 forecast
+    - "NO2_forecast"    # NO2 forecast
+  
+  targets:
+    - "O3_target"       # Ground-level O3
+    - "NO2_target"      # Ground-level NO2
+
+  temporal_features:
+    - "hour"
+    - "day_of_week"
+    - "month"
+    - "season"
+    - "is_weekend"
+
+  lag_features:
+    lags: [1, 2, 3, 6, 12, 24]  # Hours
+    variables: ["O3_target", "NO2_target", "T_forecast", "NO2_forecast", "O3_forecast"]
+  
+  rolling_features:
+    windows: [3, 6, 12, 24]     # Hours
+    statistics: ["mean", "std", "min", "max"] # Rolling statistics
+    variables: ["T_forecast", "q_forecast", "u_forecast", "v_forecast"] # Meteorological variables
+
+preprocessing:
+  missing_value_strategy: "interpolate"  # Options: interpolate, forward_fill, drop
+  outlier_detection: true
+  outlier_method: "iqr"  # Options: iqr, zscore, isolation_forest
+  scaling_method: "standard"  # Options: standard, minmax, robust
+  
+models:
+  random_forest:
+    n_estimators: 100
+    max_depth: 20
+    min_samples_split: 5
+    min_samples_leaf: 2
+    random_state: 42
+  
+  xgboost:
+    n_estimators: 200
+    max_depth: 8
+    learning_rate: 0.1
+    subsample: 0.8
+    colsample_bytree: 0.8
+    random_state: 42
+  
+  lstm:
+    sequence_length: 24  # 24 hours lookback
+    hidden_size: 64
+    num_layers: 2
+    dropout: 0.2
+    learning_rate: 0.001
+    batch_size: 32
+    epochs: 100
+    early_stopping_patience: 10
+  
+  cnn_lstm:
+    sequence_length: 24
+    cnn_filters: [32, 64]
+    cnn_kernel_size: 3
+    lstm_hidden_size: 50
+    dropout: 0.2
+    learning_rate: 0.001
+    batch_size: 32
+    epochs: 100
+
+training:
+  validation_split: 0.2
+  test_split: 0.2
+  cross_validation_folds: 5
+  random_state: 42
+  stratify_by_site: true
+
+forecasting:
+  forecast_horizons: [24, 48]  # Hours
+  forecast_intervals: 1        # Hourly predictions
+  confidence_intervals: [0.05, 0.95]  # 90% confidence interval
+  ensemble_methods: ["mean", "median", "weighted_mean"]
+
+evaluation:
+  metrics:
+    - "rmse"
+    - "mae"
+    - "mape"
+    - "r2"
+    - "bias"
+    - "correlation"
+  
+  plot_types:
+    - "time_series"
+    - "scatter"
+    - "residuals"
+    - "feature_importance"
+    - "forecast_comparison"
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file_path: "logs/air_quality_forecast.log"
+
+paths:
+  models: "models/"
+  results: "results/"
+  plots: "results/plots/"
+  reports: "results/reports/"

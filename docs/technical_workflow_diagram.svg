@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" width="1400" height="1000">
+  <!-- Background -->
+  <rect width="1400" height="1000" fill="#fafafa"/>
+  
+  <!-- Title -->
+  <text x="700" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2c3e50">
+    Air Quality Forecasting System - Technical Workflow
+  </text>
+  
+  <!-- Training Pipeline -->
+  <g id="training-pipeline">
+    <text x="700" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#34495e">
+      TRAINING PIPELINE
+    </text>
+    
+    <!-- Step 1: Data Input -->
+    <rect x="50" y="80" width="180" height="120" rx="8" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+    <text x="140" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      DATA INPUT
+    </text>
+    <text x="140" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • 7 Delhi monitoring sites
+    </text>
+    <text x="140" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Multi-year CSV files
+    </text>
+    <text x="140" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Satellite + meteorological
+    </text>
+    <text x="140" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Ground measurements
+    </text>
+    <text x="140" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • 50+ input variables
+    </text>
+    
+    <!-- Step 2: Data Preprocessing -->
+    <rect x="280" y="80" width="180" height="120" rx="8" fill="#e67e22" stroke="#d35400" stroke-width="2"/>
+    <text x="370" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      DATA PREPROCESSING
+    </text>
+    <text x="370" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Missing value imputation
+    </text>
+    <text x="370" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Outlier detection
+    </text>
+    <text x="370" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Temporal alignment
+    </text>
+    <text x="370" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Data validation
+    </text>
+    <text x="370" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Quality control
+    </text>
+    
+    <!-- Step 3: Feature Engineering -->
+    <rect x="510" y="80" width="180" height="120" rx="8" fill="#9b59b6" stroke="#8e44ad" stroke-width="2"/>
+    <text x="600" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      FEATURE ENGINEERING
+    </text>
+    <text x="600" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Temporal features (cyclical)
+    </text>
+    <text x="600" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Lag features (1-24h)
+    </text>
+    <text x="600" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Rolling statistics
+    </text>
+    <text x="600" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Meteorological indices
+    </text>
+    <text x="600" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • 200+ engineered features
+    </text>
+    
+    <!-- Step 4: Data Splitting -->
+    <rect x="740" y="80" width="180" height="120" rx="8" fill="#27ae60" stroke="#229954" stroke-width="2"/>
+    <text x="830" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      DATA SPLITTING
+    </text>
+    <text x="830" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Temporal train/val/test
+    </text>
+    <text x="830" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • 60% train, 20% val, 20% test
+    </text>
+    <text x="830" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Chronological order
+    </text>
+    <text x="830" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • No data leakage
+    </text>
+    <text x="830" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Feature scaling
+    </text>
+    
+    <!-- Step 5: Model Training -->
+    <rect x="970" y="80" width="180" height="120" rx="8" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+    <text x="1060" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      MODEL TRAINING
+    </text>
+    <text x="1060" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Random Forest
+    </text>
+    <text x="1060" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • XGBoost
+    </text>
+    <text x="1060" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • LSTM
+    </text>
+    <text x="1060" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • CNN-LSTM
+    </text>
+    <text x="1060" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Cross-validation
+    </text>
+    
+    <!-- Step 6: Model Evaluation -->
+    <rect x="1200" y="80" width="150" height="120" rx="8" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+    <text x="1275" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      EVALUATION
+    </text>
+    <text x="1275" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • RMSE, MAE, R²
+    </text>
+    <text x="1275" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Model comparison
+    </text>
+    <text x="1275" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Best model selection
+    </text>
+    <text x="1275" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Performance metrics
+    </text>
+    <text x="1275" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Visualization
+    </text>
+    
+    <!-- Training Pipeline Arrows -->
+    <path d="M 230 140 L 270 140" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+    <path d="M 460 140 L 500 140" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+    <path d="M 690 140 L 730 140" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+    <path d="M 920 140 L 960 140" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+    <path d="M 1150 140 L 1190 140" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+  </g>
+  
+  <!-- Model Storage -->
+  <g id="model-storage">
+    <rect x="1050" y="230" width="200" height="60" rx="8" fill="#34495e" stroke="#2c3e50" stroke-width="2"/>
+    <text x="1150" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      MODEL STORAGE
+    </text>
+    <text x="1150" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Trained models saved
+    </text>
+    <text x="1150" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Scalers & preprocessors
+    </text>
+    
+    <!-- Arrow from training to storage -->
+    <path d="M 1060 200 L 1150 230" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)" fill="none"/>
+  </g>
+  
+  <!-- Forecasting Pipeline -->
+  <g id="forecasting-pipeline">
+    <text x="700" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#34495e">
+      FORECASTING PIPELINE
+    </text>
+    
+    <!-- Step 1: New Data Input -->
+    <rect x="50" y="370" width="180" height="120" rx="8" fill="#16a085" stroke="#138d75" stroke-width="2"/>
+    <text x="140" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      NEW DATA INPUT
+    </text>
+    <text x="140" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Latest meteorological
+    </text>
+    <text x="140" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Recent measurements
+    </text>
+    <text x="140" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Satellite observations
+    </text>
+    <text x="140" y="460" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Real-time forecasts
+    </text>
+    <text x="140" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Site-specific data
+    </text>
+    
+    <!-- Step 2: Feature Engineering -->
+    <rect x="280" y="370" width="180" height="120" rx="8" fill="#8e44ad" stroke="#7d3c98" stroke-width="2"/>
+    <text x="370" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      FEATURE ENGINEERING
+    </text>
+    <text x="370" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Same features as training
+    </text>
+    <text x="370" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Real-time calculation
+    </text>
+    <text x="370" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Missing data handling
+    </text>
+    <text x="370" y="460" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Feature scaling
+    </text>
+    <text x="370" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Quality checks
+    </text>
+    
+    <!-- Step 3: Model Loading -->
+    <rect x="510" y="370" width="180" height="120" rx="8" fill="#2c3e50" stroke="#34495e" stroke-width="2"/>
+    <text x="600" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      MODEL LOADING
+    </text>
+    <text x="600" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Load trained models
+    </text>
+    <text x="600" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Load scalers
+    </text>
+    <text x="600" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Load feature names
+    </text>
+    <text x="600" y="460" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Validate models
+    </text>
+    <text x="600" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Error handling
+    </text>
+    
+    <!-- Step 4: Prediction -->
+    <rect x="740" y="370" width="180" height="120" rx="8" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+    <text x="830" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      PREDICTION
+    </text>
+    <text x="830" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Individual model predictions
+    </text>
+    <text x="830" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Sequence handling (LSTM)
+    </text>
+    <text x="830" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Batch processing
+    </text>
+    <text x="830" y="460" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Quality assurance
+    </text>
+    <text x="830" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Error detection
+    </text>
+    
+    <!-- Step 5: Ensemble -->
+    <rect x="970" y="370" width="180" height="120" rx="8" fill="#27ae60" stroke="#229954" stroke-width="2"/>
+    <text x="1060" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      ENSEMBLE
+    </text>
+    <text x="1060" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Weighted averaging
+    </text>
+    <text x="1060" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Model combination
+    </text>
+    <text x="1060" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Confidence intervals
+    </text>
+    <text x="1060" y="460" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Uncertainty quantification
+    </text>
+    <text x="1060" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Final prediction
+    </text>
+    
+    <!-- Step 6: Output -->
+    <rect x="1200" y="370" width="150" height="120" rx="8" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+    <text x="1275" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      OUTPUT
+    </text>
+    <text x="1275" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • 24-48h forecasts
+    </text>
+    <text x="1275" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Hourly resolution
+    </text>
+    <text x="1275" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Confidence bounds
+    </text>
+    <text x="1275" y="460" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Health assessment
+    </text>
+    <text x="1275" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      • Visualizations
+    </text>
+    
+    <!-- Forecasting Pipeline Arrows -->
+    <path d="M 230 430 L 270 430" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+    <path d="M 460 430 L 500 430" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+    <path d="M 690 430 L 730 430" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+    <path d="M 920 430 L 960 430" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+    <path d="M 1150 430 L 1190 430" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+    
+    <!-- Arrow from storage to model loading -->
+    <path d="M 1050 260 L 650 370" stroke="#6c757d" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)" fill="none"/>
+  </g>
+  
+  <!-- Data Flow Details -->
+  <g id="data-flow-details">
+    <text x="700" y="550" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#34495e">
+      DATA FLOW & TECHNICAL DETAILS
+    </text>
+    
+    <!-- Data Processing Details -->
+    <rect x="50" y="570" width="400" height="200" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+    <text x="250" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">
+      DATA PROCESSING PIPELINE
+    </text>
+    <text x="60" y="610" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">
+      <tspan x="60" dy="15">1. Multi-site CSV Loading:</tspan>
+      <tspan x="70" dy="15">   • 7 Delhi monitoring sites (site_1.csv ... site_7.csv)</tspan>
+      <tspan x="70" dy="15">   • Historical data: 2019-2024 (58,420+ records)</tspan>
+      <tspan x="70" dy="15">   • Site coordinates from lat_lon_sites.txt</tspan>
+      
+      <tspan x="60" dy="25">2. Data Quality Control:</tspan>
+      <tspan x="70" dy="15">   • Missing value detection and imputation</tspan>
+      <tspan x="70" dy="15">   • Outlier detection using IQR and Z-score</tspan>
+      <tspan x="70" dy="15">   • Temporal consistency validation</tspan>
+      
+      <tspan x="60" dy="25">3. Feature Engineering (200+ features):</tspan>
+      <tspan x="70" dy="15">   • Temporal: hour_sin/cos, month_sin/cos, season</tspan>
+      <tspan x="70" dy="15">   • Lag: 1,2,3,6,12,24h historical values</tspan>
+      <tspan x="70" dy="15">   • Rolling: 3,6,12,24h moving averages/stats</tspan>
+      <tspan x="70" dy="15">   • Meteorological: wind_speed, stability indices</tspan>
+    </text>
+    
+    <!-- Model Training Details -->
+    <rect x="500" y="570" width="400" height="200" rx="8" fill="#fdf2e9" stroke="#f39c12" stroke-width="1"/>
+    <text x="700" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">
+      MODEL TRAINING PIPELINE
+    </text>
+    <text x="510" y="610" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">
+      <tspan x="510" dy="15">1. Traditional ML Models:</tspan>
+      <tspan x="520" dy="15">   • Random Forest: n_estimators=100, max_depth=20</tspan>
+      <tspan x="520" dy="15">   • XGBoost: n_estimators=200, learning_rate=0.1</tspan>
+      <tspan x="520" dy="15">   • Built-in feature importance analysis</tspan>
+      
+      <tspan x="510" dy="25">2. Deep Learning Models:</tspan>
+      <tspan x="520" dy="15">   • LSTM: sequence_length=24, hidden_size=64</tspan>
+      <tspan x="520" dy="15">   • CNN-LSTM: Conv1D + LSTM hybrid architecture</tspan>
+      <tspan x="520" dy="15">   • Dropout=0.2, early stopping enabled</tspan>
+      
+      <tspan x="510" dy="25">3. Training Process:</tspan>
+      <tspan x="520" dy="15">   • Temporal split: 60% train, 20% val, 20% test</tspan>
+      <tspan x="520" dy="15">   • Cross-validation with TimeSeriesSplit</tspan>
+      <tspan x="520" dy="15">   • Hyperparameter optimization</tspan>
+    </text>
+    
+    <!-- Forecasting Details -->
+    <rect x="950" y="570" width="400" height="200" rx="8" fill="#eaf2f8" stroke="#3498db" stroke-width="1"/>
+    <text x="1150" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">
+      FORECASTING PIPELINE
+    </text>
+    <text x="960" y="610" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">
+      <tspan x="960" dy="15">1. Real-time Data Processing:</tspan>
+      <tspan x="970" dy="15">   • Latest meteorological forecasts</tspan>
+      <tspan x="970" dy="15">   • Recent ground measurements</tspan>
+      <tspan x="970" dy="15">   • Satellite observations</tspan>
+      
+      <tspan x="960" dy="25">2. Model Prediction:</tspan>
+      <tspan x="970" dy="15">   • Load trained models from disk</tspan>
+      <tspan x="970" dy="15">   • Apply same feature engineering</tspan>
+      <tspan x="970" dy="15">   • Generate individual model predictions</tspan>
+      
+      <tspan x="960" dy="25">3. Ensemble & Output:</tspan>
+      <tspan x="970" dy="15">   • Weighted averaging of models</tspan>
+      <tspan x="970" dy="15">   • 95% confidence intervals</tspan>
+      <tspan x="970" dy="15">   • Health impact assessment</tspan>
+      <tspan x="970" dy="15">   • 24-48h hourly forecasts</tspan>
+    </text>
+  </g>
+  
+  <!-- Performance Metrics -->
+  <g id="performance-metrics">
+    <rect x="50" y="810" width="600" height="140" rx="8" fill="#e8f5e8" stroke="#27ae60" stroke-width="1"/>
+    <text x="350" y="830" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">
+      SYSTEM PERFORMANCE METRICS
+    </text>
+    <text x="60" y="850" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">
+      <tspan x="60" dy="15">• Best O₃ Model: XGBoost (RMSE: 12.3 μg/m³, R²: 0.85, MAE: 9.1 μg/m³)</tspan>
+      <tspan x="60" dy="15">• Best NO₂ Model: Random Forest (RMSE: 8.7 μg/m³, R²: 0.82, MAE: 6.4 μg/m³)</tspan>
+      <tspan x="60" dy="15">• Training Time: 2-3 minutes for traditional ML, 12-15 minutes for deep learning</tspan>
+      <tspan x="60" dy="15">• Forecasting Speed: &lt;30 seconds for 24-48 hour predictions</tspan>
+      <tspan x="60" dy="15">• Data Processing: 58,420+ records from 7 sites, 200+ engineered features</tspan>
+      <tspan x="60" dy="15">• Health Assessment: WHO/EPA guidelines integration with status categorization</tspan>
+    </text>
+  </g>
+  
+  <!-- Technical Specifications -->
+  <g id="tech-specs">
+    <rect x="700" y="810" width="650" height="140" rx="8" fill="#fdf2e9" stroke="#f39c12" stroke-width="1"/>
+    <text x="1025" y="830" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">
+      TECHNICAL SPECIFICATIONS
+    </text>
+    <text x="710" y="850" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">
+      <tspan x="710" dy="15">• Language: Python 3.8+ with pandas, numpy, scikit-learn, XGBoost, TensorFlow</tspan>
+      <tspan x="710" dy="15">• Configuration: YAML-based centralized parameter management</tspan>
+      <tspan x="710" dy="15">• Storage: CSV data files, joblib/pickle for model persistence, JSON for results</tspan>
+      <tspan x="710" dy="15">• Interface: Streamlit dashboard, Jupyter notebooks, CLI scripts</tspan>
+      <tspan x="710" dy="15">• Deployment: Docker containerization, FastAPI for production, automated pipelines</tspan>
+      <tspan x="710" dy="15">• Monitoring: Comprehensive logging, performance tracking, error handling</tspan>
+    </text>
+  </g>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50"/>
+    </marker>
+  </defs>
+</svg>

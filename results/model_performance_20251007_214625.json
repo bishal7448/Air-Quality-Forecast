@@ -1,0 +1,35 @@
+{
+  "data_summary": {
+    "total_records": 171679,
+    "sites": 7,
+    "date_range": [
+      "2019-07-10 00:00:00",
+      "2024-06-30 00:00:00"
+    ],
+    "features": [
+      "year",
+      "month",
+      "day",
+      "hour",
+      "O3_forecast",
+      "NO2_forecast",
+      "T_forecast",
+      "q_forecast",
+      "u_forecast",
+      "v_forecast",
+      "w_forecast",
+      "NO2_satellite",
+      "HCHO_satellite",
+      "ratio_satellite",
+      "O3_target",
+      "NO2_target",
+      "site_id",
+      "datetime"
+    ]
+  },
+  "feature_engineering": {
+    "original_features": 18,
+    "enhanced_features": 149,
+    "numeric_features": 144
+  }
+}

@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1400" width="1200" height="1400">
+  <!-- Background -->
+  <rect width="1200" height="1400" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2c3e50">
+    Air Quality Forecasting System - Architecture
+  </text>
+  
+  <!-- Data Sources Layer -->
+  <g id="data-sources">
+    <rect x="50" y="80" width="1100" height="120" rx="10" fill="#e8f4fd" stroke="#3498db" stroke-width="2"/>
+    <text x="600" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">
+      DATA SOURCES LAYER
+    </text>
+    
+    <!-- Satellite Data -->
+    <rect x="80" y="120" width="320" height="70" rx="5" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+    <text x="240" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Satellite Data
+    </text>
+    <text x="240" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • NO₂, HCHO observations
+    </text>
+    <text x="240" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Ratios & quality flags
+    </text>
+    
+    <!-- Meteorological Data -->
+    <rect x="440" y="120" width="320" height="70" rx="5" fill="#27ae60" stroke="#229954" stroke-width="1"/>
+    <text x="600" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Meteorological Forecasts
+    </text>
+    <text x="600" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Temperature, Humidity
+    </text>
+    <text x="600" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Wind components (u,v,w)
+    </text>
+    
+    <!-- Ground Monitoring -->
+    <rect x="800" y="120" width="320" height="70" rx="5" fill="#e67e22" stroke="#d35400" stroke-width="1"/>
+    <text x="960" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Ground Monitoring
+    </text>
+    <text x="960" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Historical O₃/NO₂ data
+    </text>
+    <text x="960" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • 7 Delhi monitoring sites
+    </text>
+  </g>
+  
+  <!-- Arrow from Data Sources to Data Processing -->
+  <path d="M 600 210 L 600 240" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+  
+  <!-- Data Processing Layer -->
+  <g id="data-processing">
+    <rect x="50" y="250" width="1100" height="100" rx="10" fill="#fef9e7" stroke="#f1c40f" stroke-width="2"/>
+    <text x="600" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">
+      DATA PROCESSING LAYER
+    </text>
+    
+    <rect x="100" y="290" width="1000" height="50" rx="5" fill="#f39c12" stroke="#e67e22" stroke-width="1"/>
+    <text x="150" y="310" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      DataLoader (src/data_preprocessing/data_loader.py)
+    </text>
+    <text x="150" y="330" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Multi-site loading • Data validation • Missing value imputation • Temporal alignment
+    </text>
+  </g>
+  
+  <!-- Arrow -->
+  <path d="M 600 360 L 600 390" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+  
+  <!-- Feature Engineering Layer -->
+  <g id="feature-engineering">
+    <rect x="50" y="400" width="1100" height="120" rx="10" fill="#eaf2f8" stroke="#3498db" stroke-width="2"/>
+    <text x="600" y="425" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">
+      FEATURE ENGINEERING LAYER
+    </text>
+    
+    <rect x="100" y="440" width="1000" height="70" rx="5" fill="#2980b9" stroke="#1f4788" stroke-width="1"/>
+    <text x="150" y="460" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      FeatureEngineer (src/feature_engineering/feature_engineer.py)
+    </text>
+    <text x="150" y="480" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Temporal features (cyclical encoding) • Lag features (1,2,3,6,12,24h) • Rolling statistics (mean,std,min,max)
+    </text>
+    <text x="150" y="495" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Meteorological indices • Satellite-derived features • Interaction terms
+    </text>
+  </g>
+  
+  <!-- Arrow -->
+  <path d="M 600 530 L 600 560" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+  
+  <!-- Model Training Layer -->
+  <g id="model-training">
+    <rect x="50" y="570" width="1100" height="160" rx="10" fill="#f4e6f7" stroke="#8e44ad" stroke-width="2"/>
+    <text x="600" y="595" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">
+      MODEL TRAINING LAYER
+    </text>
+    
+    <!-- Traditional ML -->
+    <rect x="100" y="610" width="300" height="110" rx="5" fill="#9b59b6" stroke="#7d3c98" stroke-width="1"/>
+    <text x="250" y="630" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Traditional ML
+    </text>
+    <text x="250" y="650" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Random Forest
+    </text>
+    <text x="250" y="665" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • XGBoost
+    </text>
+    <text x="250" y="680" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Feature importance
+    </text>
+    <text x="250" y="695" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Fast training
+    </text>
+    <text x="250" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Hyperparameter tuning
+    </text>
+    
+    <!-- Deep Learning -->
+    <rect x="450" y="610" width="300" height="110" rx="5" fill="#e74c3c" stroke="#c0392b" stroke-width="1"/>
+    <text x="600" y="630" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Deep Learning
+    </text>
+    <text x="600" y="650" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • LSTM Networks
+    </text>
+    <text x="600" y="665" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • CNN-LSTM Hybrid
+    </text>
+    <text x="600" y="680" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Temporal dependencies
+    </text>
+    <text x="600" y="695" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Sequential patterns
+    </text>
+    <text x="600" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Complex relationships
+    </text>
+    
+    <!-- Model Management -->
+    <rect x="800" y="610" width="300" height="110" rx="5" fill="#16a085" stroke="#138d75" stroke-width="1"/>
+    <text x="950" y="630" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Model Management
+    </text>
+    <text x="950" y="650" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Cross-validation
+    </text>
+    <text x="950" y="665" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Model persistence
+    </text>
+    <text x="950" y="680" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Performance tracking
+    </text>
+    <text x="950" y="695" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Best model selection
+    </text>
+    <text x="950" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Ensemble methods
+    </text>
+  </g>
+  
+  <!-- Arrow -->
+  <path d="M 600 740 L 600 770" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+  
+  <!-- Evaluation Layer -->
+  <g id="evaluation">
+    <rect x="50" y="780" width="1100" height="120" rx="10" fill="#e8f8f5" stroke="#27ae60" stroke-width="2"/>
+    <text x="600" y="805" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">
+      EVALUATION LAYER
+    </text>
+    
+    <rect x="100" y="820" width="1000" height="70" rx="5" fill="#27ae60" stroke="#1e8449" stroke-width="1"/>
+    <text x="150" y="840" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      ModelEvaluator (src/evaluation/model_evaluator.py)
+    </text>
+    <text x="150" y="860" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Comprehensive metrics (RMSE, MAE, R², MAPE) • Cross-validation • Temporal splitting
+    </text>
+    <text x="150" y="875" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Residual analysis • Feature importance • Visualization & reporting • Model comparison
+    </text>
+  </g>
+  
+  <!-- Arrow -->
+  <path d="M 600 910 L 600 940" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+  
+  <!-- Forecasting Layer -->
+  <g id="forecasting">
+    <rect x="50" y="950" width="1100" height="120" rx="10" fill="#fef5e7" stroke="#f39c12" stroke-width="2"/>
+    <text x="600" y="975" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">
+      FORECASTING LAYER
+    </text>
+    
+    <rect x="100" y="990" width="1000" height="70" rx="5" fill="#e67e22" stroke="#d35400" stroke-width="1"/>
+    <text x="150" y="1010" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      AirQualityForecaster (src/forecasting/forecaster.py)
+    </text>
+    <text x="150" y="1030" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Real-time predictions • Multi-horizon forecasts (24-48h) • Confidence intervals
+    </text>
+    <text x="150" y="1045" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Ensemble predictions • Health impact assessment • Uncertainty quantification
+    </text>
+  </g>
+  
+  <!-- Arrow -->
+  <path d="M 600 1080 L 600 1110" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+  
+  <!-- User Interface Layer -->
+  <g id="user-interface">
+    <rect x="50" y="1120" width="1100" height="160" rx="10" fill="#f8f9fa" stroke="#6c757d" stroke-width="2"/>
+    <text x="600" y="1145" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">
+      USER INTERFACE LAYER
+    </text>
+    
+    <!-- Web Dashboard -->
+    <rect x="100" y="1160" width="300" height="110" rx="5" fill="#6c757d" stroke="#495057" stroke-width="1"/>
+    <text x="250" y="1180" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Web Dashboard
+    </text>
+    <text x="250" y="1200" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • app.py (Streamlit)
+    </text>
+    <text x="250" y="1215" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Interactive exploration
+    </text>
+    <text x="250" y="1230" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Real-time training
+    </text>
+    <text x="250" y="1245" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Forecast visualization
+    </text>
+    <text x="250" y="1260" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Health assessments
+    </text>
+    
+    <!-- Jupyter Notebooks -->
+    <rect x="450" y="1160" width="300" height="110" rx="5" fill="#ff6b35" stroke="#e55100" stroke-width="1"/>
+    <text x="600" y="1180" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Jupyter Notebooks
+    </text>
+    <text x="600" y="1200" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Interactive analysis
+    </text>
+    <text x="600" y="1215" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Step-by-step workflow
+    </text>
+    <text x="600" y="1230" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Detailed visualizations
+    </text>
+    <text x="600" y="1245" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Model development
+    </text>
+    <text x="600" y="1260" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Research & exploration
+    </text>
+    
+    <!-- Command Line -->
+    <rect x="800" y="1160" width="300" height="110" rx="5" fill="#28a745" stroke="#1e7e34" stroke-width="1"/>
+    <text x="950" y="1180" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Command Line
+    </text>
+    <text x="950" y="1200" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Demo scripts
+    </text>
+    <text x="950" y="1215" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Batch processing
+    </text>
+    <text x="950" y="1230" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • API endpoints
+    </text>
+    <text x="950" y="1245" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Automated pipelines
+    </text>
+    <text x="950" y="1260" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Production deployment
+    </text>
+  </g>
+  
+  <!-- Configuration and Utils -->
+  <g id="config-utils">
+    <!-- Configuration -->
+    <rect x="50" y="1300" width="250" height="80" rx="5" fill="#17a2b8" stroke="#138496" stroke-width="1"/>
+    <text x="175" y="1320" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Configuration
+    </text>
+    <text x="175" y="1340" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • config.yaml
+    </text>
+    <text x="175" y="1355" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Model parameters
+    </text>
+    <text x="175" y="1370" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Feature settings
+    </text>
+    
+    <!-- Utils -->
+    <rect x="350" y="1300" width="250" height="80" rx="5" fill="#6f42c1" stroke="#5a32a3" stroke-width="1"/>
+    <text x="475" y="1320" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Utilities
+    </text>
+    <text x="475" y="1340" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Logging system
+    </text>
+    <text x="475" y="1355" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Helper functions
+    </text>
+    <text x="475" y="1370" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Common operations
+    </text>
+    
+    <!-- Data Storage -->
+    <rect x="650" y="1300" width="250" height="80" rx="5" fill="#dc3545" stroke="#c82333" stroke-width="1"/>
+    <text x="775" y="1320" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Data Storage
+    </text>
+    <text x="775" y="1340" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Training data CSV
+    </text>
+    <text x="775" y="1355" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Site coordinates
+    </text>
+    <text x="775" y="1370" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Model files
+    </text>
+    
+    <!-- Results -->
+    <rect x="950" y="1300" width="200" height="80" rx="5" fill="#fd7e14" stroke="#e8590c" stroke-width="1"/>
+    <text x="1050" y="1320" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Results
+    </text>
+    <text x="1050" y="1340" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Forecasts
+    </text>
+    <text x="1050" y="1355" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Reports
+    </text>
+    <text x="1050" y="1370" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      • Plots
+    </text>
+  </g>
+  
+  <!-- Arrows connecting config/utils to main pipeline -->
+  <path d="M 300 1300 L 400 1200" stroke="#6c757d" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+  <path d="M 500 1300 L 500 1200" stroke="#6c757d" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+  <path d="M 700 1300 L 600 1200" stroke="#6c757d" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+  <path d="M 1000 1300 L 900 1200" stroke="#6c757d" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50"/>
+    </marker>
+  </defs>
+</svg>
