@@ -27,19 +27,10 @@ catboost>=1.2.0
 # ============================================================
 # TensorFlow 2.13+ may not have prebuilt wheels for Python 3.13
 # Safe to cap to 2.14 for compatibility on Python 3.12 builds
-# tensorflow==2.14.0
-# keras==2.14.0
-# torch==2.2.2
-# torchvision==0.17.2
-
-# -------------------------------
-# Deep learning (Python 3.12 compatible)
-# -------------------------------
-tensorflow==2.15.0
-keras==2.15.0
-torch==2.3.1
-torchvision==0.18.1
-
+tensorflow==2.14.0
+keras==2.14.0
+torch==2.2.2
+torchvision==0.17.2
 
 # ============================================================
 # 📈 Data visualization
